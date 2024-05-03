@@ -4,7 +4,7 @@ from .models import About
 class AboutForm(forms.ModelForm):
     class Meta:
         model = About
-        fields = ['title', 'subtitle', 'profile_image', 'general_description', 'birthday', 'website', 'phone', 'city', 'age', 'degree', 'email', 'freelance_status', 'detailed_description']
+        fields = ['title', 'subtitle', 'profile_image', 'general_description', 'birthday', 'website', 'phone', 'city', 'age', 'degree', 'email', 'freelance', 'detailed_description']
        
         # widgets = {
         #     'title': forms.TextInput(attrs={'class': 'form-control'}),

@@ -1,10 +1,12 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from about.models import About
 from skills.models import Skill
 from portfolio.models import Project
 from services.models import Service
 from testimonials.models import Testimonial
 from contact.models import ContactInfo
+
+from about.forms import AboutForm
 
 def home(request):
     about = About.objects.first()
@@ -40,5 +42,16 @@ def backoffice(request):
     return render(request, "backoffice.html", context)
 
 
-    
+
+def edit_about(request): 
+    # about = About.objects.first()
+    about = get_object_or_404(About, id=1)
+    if request.method == 'POST':
+        form = AboutForm(request.POST or None, request.FILES, instance=about)
+        if form.is_valid():
+            form.save()
+            return redirect('backoffice') 
+    else:
+        form = AboutForm(instance=about)
+    return render(request, 'aboutback.html', {'form': form, 'about': about})
 

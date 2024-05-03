@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap5 %}
+
+{% block content %}
+
+
+
+      <main id="main">
+        {% comment %} <section id="about" class="about">
+            <div class="container">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-success">Save Changes</button>
+                    <a href="{% url 'backoffice' %}" class="btn btn-secondary">Cancel</a>
+                </form>
+            </div>
+        </section> {% endcomment %}
+
+        <section id="about" class="about">
+            <div class="container">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <!-- Title -->
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" name="title" value="{{ about.title }}">
+                    </div>
+        
+                    <!-- Subtitle -->
+                    <div class="mb-3">
+                        <label for="subtitle" class="form-label">Subtitle</label>
+                        <input type="text" class="form-control" id="subtitle" name="subtitle" value="{{ about.subtitle }}">
+                    </div>
+        
+                    <!-- Profile Image -->
+                    <div class="mb-3">
+                        <label for="profile_image" class="form-label">Profile Image</label>
+                        <input type="file" class="form-control" id="profile_image" name="profile_image">
+                        {% if about.profile_image %}
+                        <img src="{{ about.profile_image.url }}" alt="Current Image" class="img-fluid mt-2" style="width: 150px;">
+                        {% endif %}
+                    </div>
+        
+                    <!-- General Description -->
+                    <div class="mb-3">
+                        <label for="general_description" class="form-label">General Description</label>
+                        <textarea class="form-control" id="general_description" name="general_description" rows="3">{{ about.general_description }}</textarea>
+                    </div>
+        
+                    <!-- Birthday -->
+                    <div class="mb-3">
+                        <label for="birthday" class="form-label">Birthday</label>
+                        <input type="date" class="form-control" id="birthday" name="birthday" value="{{about.birthday|date:'Y-m-d' }}">
+                    </div>
+        
+                    <!-- Website -->
+                    <div class="mb-3">
+                        <label for="website" class="form-label">Website</label>
+                        <input type="url" class="form-control" id="website" name="website" value="{{ about.website }}">
+                    </div>
+        
+                    <!-- Phone -->
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="text" class="form-control" id="phone" name="phone" value="{{ about.phone }}">
+                    </div>
+        
+                    <!-- City -->
+                    <div class="mb-3">
+                        <label for="city" class="form-label">City</label>
+                        <input type="text" class="form-control" id="city" name="city" value="{{ about.city }}">
+                    </div>
+        
+                    <!-- Age -->
+                    <div class="mb-3">
+                        <label for="age" class="form-label">Age</label>
+                        <input type="number" class="form-control" id="age" name="age" value="{{ about.age }}">
+                    </div>
+        
+                    <!-- Degree -->
+                    <div class="mb-3">
+                        <label for="degree" class="form-label">Degree</label>
+                        <input type="text" class="form-control" id="degree" name="degree" value="{{ about.degree }}">
+                    </div>
+        
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" value="{{ about.email }}">
+                    </div>
+        
+                    <!-- Freelance -->
+                    <div class="mb-3">
+                        <label for="freelance" class="form-label">Freelance</label>
+                        <select class="form-select" id="freelance" name="freelance">
+                            <option value="Yes" {% if about.freelance == "Yes" %}selected{% endif %}>Yes</option>
+                            <option value="No" {% if about.freelance == "No" %}selected{% endif %}>No</option>
+                        </select>
+                    </div>
+        
+                    <!-- Detailed Description -->
+                    <div class="mb-3">
+                        <label for="detailed_description" class="form-label">Detailed Description</label>
+                        <textarea class="form-control" id="detailed_description" name="detailed_description" rows="4">{{ about.detailed_description }}</textarea>
+                    </div>
+        
+                    <button type="submit" class="btn btn-success">Save Changes</button>
+                    <a href="{% url 'backoffice' %}" class="btn btn-secondary">Cancel</a>
+                </form>
+            </div>
+        </section>
+        
+      </main>
+
+
+{% endblock %}    
