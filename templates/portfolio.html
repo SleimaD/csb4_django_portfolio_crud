@@ -17,16 +17,32 @@
             <div class="col-lg-12 d-flex justify-content-center">
               <ul id="portfolio-flters">
                 <li data-filter="*" class="filter-active">All</li>
-                <li data-filter=".filter-app">App</li>
+                {% for filter in uniquefilterlist %}
+                <li data-filter=".filter-{{filter|lower}}">{{filter}}</li>
+                {% endfor %}
+                {% comment %} <li data-filter=".filter-app">App</li>
                 <li data-filter=".filter-card">Card</li>
-                <li data-filter=".filter-web">Web</li>
+                <li data-filter=".filter-web">Web</li> {% endcomment %}
               </ul>
             </div>
           </div>
   
           <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+
+              {% for project in projects %}
+              <div class="col-lg-4 col-md-6 portfolio-item filter-{{ project.category|lower }}">
+                  <div class="portfolio-wrap">
+                      <img src="{{ project.image.url }}" class="img-fluid" alt={{project.title}}>
+                      <div class="portfolio-links">
+                          <a href="{{ project.image.url }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{ project.title }}"><i class="bx bx-plus"></i></a>
+                          <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                      </div>
+                  </div>
+              </div>
+              {% endfor %}
+
   
-            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            {% comment %} <div class="col-lg-4 col-md-6 portfolio-item filter-app">
               <div class="portfolio-wrap">
                 <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
                 <div class="portfolio-links">
@@ -116,7 +132,7 @@
               </div>
             </div>
   
-          </div>
+          </div> {% endcomment %}
   
         </div>
       </section><!-- End Portfolio Section -->

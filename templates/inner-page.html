@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +26,7 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href={% static ""css/style.css"" %} rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: iPortfolio
@@ -46,7 +47,7 @@
     <div class="d-flex flex-column">
 
       <div class="profile">
-        <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
+        <img src={% static "img/profile-img.jpg " %}alt="" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="index.html">Alex Smith</a></h1>
         <div class="social-links mt-3 text-center">
           <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>

@@ -4,7 +4,7 @@
 
 {% block content %}
 
-    <!-- ======= Testimonials Section ======= -->
+    <!-- ======= Testimonials Section ======= --> 
 <section id="testimonials" class="testimonials section-bg">
     <div class="container">
 
@@ -16,7 +16,22 @@
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
         <div class="swiper-wrapper">
 
-            <div class="swiper-slide">
+            {% for testimonial in testimonials %}
+                <div class="swiper-slide">
+                    <div class="testimonial-item" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:100 }}">
+                        <p>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                            {{ testimonial.text }}
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </p>
+                        <img src="{{ testimonial.image.url }}" class="testimonial-img" alt="{{ testimonial.first_name }} {{ testimonial.last_name }}">
+                        <h3>{{ testimonial.first_name }} {{ testimonial.last_name }}</h3>
+                        <h4>{{ testimonial.position }}</h4>
+                    </div>
+                </div><!-- End testimonial item -->
+                {% endfor %}
+
+            {% comment %} <div class="swiper-slide">
             <div class="testimonial-item" data-aos="fade-up">
                 <p>
                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
@@ -79,7 +94,7 @@
                 <h3>John Larson</h3>
                 <h4>Entrepreneur</h4>
             </div>
-            </div><!-- End testimonial item -->
+            </div><!-- End testimonial item --> {% endcomment %}
 
         </div>
         <div class="swiper-pagination"></div>
