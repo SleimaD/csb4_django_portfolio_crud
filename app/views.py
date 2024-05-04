@@ -39,9 +39,9 @@ def backoffice(request):
     seen = set()
     uniquefilterlist = []
     for obj in projects:
-        if obj.category not in seen:
-            seen.add(obj.category)
-            uniquefilterlist.append(obj.category)
+        category = obj.category.strip().lower()
+        if category not in uniquefilterlist:
+            uniquefilterlist.append(category)
     context = locals()
     return render(request, "backoffice.html", context)
 
@@ -103,6 +103,4 @@ def delete_project(request, id):
     project = Project.objects.get(id=id)
     project.delete()
     return redirect('backoffice')
-
-
 
