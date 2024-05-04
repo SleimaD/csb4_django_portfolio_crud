@@ -15,6 +15,8 @@ urlpatterns = [
     path("portfolio-details/", views.portfolio_details, name="portfolio-details"),
     path("backoffice/addproject/", views.add_project, name="add_project"),
     path("project/<int:id>/destroy/", views.delete_project, name="delete_project"),
+    path("backoffice/addservice/", views.add_service, name="add_service"),
+    path("service/<int:id>/destroy/", views.delete_service, name="delete_service")
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

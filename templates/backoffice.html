@@ -209,7 +209,7 @@
         <div class="container">
 
             <div class="section-title">
-            <h2>Services <span><button class="btn btn-success">add a new Service</button></span></h2>
+            <h2>Services <span><a href={% url "add_service" %} class="btn btn-success">add a new Service</a></span></h2>
             <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
             </div>
 
@@ -217,7 +217,7 @@
                 {% for service in services %}
                 <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:'100' }}">
                     <div class="icon"><i class="{{ service.icon }}"></i></div>
-                    <h4 class="title">{{ service.title }}  <a href="">&nbsp; <i class="bx bx-trash ledanger"></i></a></h4>
+                    <h4 class="title">{{ service.title }}  <a href={% url "delete_service" service.id %}>&nbsp; <i class="bx bx-trash ledanger"></i></a></h4>
                     <p class="description">{{ service.description }}</p>
                 </div>
                 {% endfor %}

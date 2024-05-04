@@ -9,6 +9,7 @@ from contact.models import ContactInfo
 from about.forms import AboutForm
 from skills.forms import SkillForm
 from portfolio.forms import ProjectForm
+from services.forms import ServiceForm
 
 
 
@@ -102,5 +103,26 @@ def add_project(request):
 def delete_project(request, id):
     project = Project.objects.get(id=id)
     project.delete()
+    return redirect('backoffice')
+
+
+
+#* services
+
+def add_service(request):
+    if request.method == 'POST':
+        form = ServiceForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('backoffice')  
+    else:
+        form = ServiceForm()
+    return render(request, 'serviceback.html', {'form': form})
+
+
+
+def delete_service(request, id):
+    service = Service.objects.get(id=id)
+    service.delete()
     return redirect('backoffice')
 
