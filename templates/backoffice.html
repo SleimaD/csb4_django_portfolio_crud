@@ -231,7 +231,7 @@
       <div class="container">
 
           <div class="section-title">
-          <h2>Testimonials &nbsp; <span><button class="btn btn-success">add a new testimonial</button></span></h2>
+          <h2>Testimonials &nbsp; <span><a href={% url "add_testimonial" %} class="btn btn-success">add a new testimonial</a></span></h2>
           <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
           </div>
 
@@ -249,7 +249,7 @@
                           <img src="{{ testimonial.image.url }}" class="testimonial-img" alt="{{ testimonial.first_name }} {{ testimonial.last_name }}">
                           <h3>{{ testimonial.first_name }} {{ testimonial.last_name }}</h3>
                           <h4>{{ testimonial.position }}</h4>
-                          <a href="" class="ledanger mt-2"><i class="bx bx-trash "></i></a>
+                          <a href={% url "delete_testimonial" testimonial.id %} class="ledanger mt-2"><i class="bx bx-trash" ></i></a> 
                       </div>
                   </div><!-- End testimonial item -->
                   {% endfor %}

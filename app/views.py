@@ -10,7 +10,7 @@ from about.forms import AboutForm
 from skills.forms import SkillForm
 from portfolio.forms import ProjectForm
 from services.forms import ServiceForm
-
+from testimonials.forms import TestimonialForm
 
 
 def home(request):
@@ -125,4 +125,23 @@ def delete_service(request, id):
     service = Service.objects.get(id=id)
     service.delete()
     return redirect('backoffice')
+
+#* testimonials
+
+def add_testimonial(request):
+    if request.method == 'POST':
+        form = TestimonialForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('backoffice')  
+    else:
+        form = TestimonialForm()
+    return render(request, 'testimonialback.html', {'form': form})
+
+
+def delete_testimonial(request, id):
+    testimonial = Testimonial.objects.get(id=id)
+    testimonial.delete()
+    return redirect('backoffice')
+
 
