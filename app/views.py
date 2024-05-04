@@ -11,6 +11,7 @@ from skills.forms import SkillForm
 from portfolio.forms import ProjectForm
 from services.forms import ServiceForm
 from testimonials.forms import TestimonialForm
+from contact.forms import ContactInfoForm
 
 
 def home(request):
@@ -145,3 +146,16 @@ def delete_testimonial(request, id):
     return redirect('backoffice')
 
 
+
+#* contact
+
+def edit_contact(request):
+    contact_info = get_object_or_404(ContactInfo, id=1)
+    if request.method == 'POST':
+        form = ContactInfoForm(request.POST, instance=contact_info)
+        if form.is_valid():
+            form.save()
+            return redirect('backoffice') 
+    else:
+        form = ContactInfoForm(instance=contact_info)
+    return render(request, 'contactback.html', {'form': form})

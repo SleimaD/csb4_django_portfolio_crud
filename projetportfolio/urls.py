@@ -19,6 +19,7 @@ urlpatterns = [
     path("service/<int:id>/destroy/", views.delete_service, name="delete_service"),
     path("backoffice/addtestimonial/", views.add_testimonial, name="add_testimonial"),
     path("testimonial/<int:id>/destroy", views.delete_testimonial, name="delete_testimonial"),
+    path('backoffice/edit-contact/', views.edit_contact, name='edit_contact'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
