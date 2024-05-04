@@ -8,6 +8,7 @@ from contact.models import ContactInfo
 
 from about.forms import AboutForm
 from skills.forms import SkillForm
+from portfolio.forms import ProjectForm
 
 
 
@@ -78,5 +79,30 @@ def delete_skill(request, id):
     skill = Skill.objects.get(id=id)
     skill.delete()
     return redirect('backoffice')
+
+
+
+#* portfolio
+
+def portfolio_details(request):
+    return render(request, "portfolio-details.html")
+
+
+def add_project(request):
+    if request.method == 'POST':
+        form = ProjectForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('backoffice') 
+    else:
+        form = ProjectForm()
+    return render(request, 'portfolioback.html', {'form': form})
+
+
+def delete_project(request, id):
+    project = Project.objects.get(id=id)
+    project.delete()
+    return redirect('backoffice')
+
 
 

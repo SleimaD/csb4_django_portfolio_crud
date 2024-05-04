@@ -170,7 +170,7 @@
         <div class="container">
   
           <div class="section-title">
-            <h2>Portfolio <span><button class="btn btn-success">Add a new Project</button></span></h2>
+            <h2>Portfolio <span><a href={% url "add_project" %} class="btn btn-success">Add a new Project</a></span></h2>
             <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
           </div>
   
@@ -193,8 +193,8 @@
                       <img src="{{ project.image.url }}" class="img-fluid" alt={{project.title}}>
                       <div class="portfolio-links">
                           <a class="lesa" href="{{ project.image.url }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{ project.title }}"><i class="bx bx-plus"></i></a>
-                          <a class="lesa" href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                          <a class="ledelete" href="" title="delete"><i class="bx bx-trash "></i></a>
+                          <a class="lesa" href={% url "portfolio-details" %} title="More Details"><i class="bx bx-link"></i></a>
+                          <a class="ledelete" href={% url "delete_project" project.id %} title="delete"><i class="bx bx-trash "></i></a>
                       </div>
                   </div>
               </div>

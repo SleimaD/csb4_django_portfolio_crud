@@ -12,5 +12,10 @@ urlpatterns = [
     path("backoffice/edit/", views.edit_about, name="edit_about"),
     path("backoffice/new/", views.skill_add, name="skill_add"),
     path("backoffice/<int:id>/destroy/", views.delete_skill, name="delete_skill"),
+    path("portfolio-details/", views.portfolio_details, name="portfolio-details"),
+    path("backoffice/addproject/", views.add_project, name="add_project"),
+    path("project/<int:id>/destroy/", views.delete_project, name="delete_project"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
 
