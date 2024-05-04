@@ -7,6 +7,9 @@ from testimonials.models import Testimonial
 from contact.models import ContactInfo
 
 from about.forms import AboutForm
+from skills.forms import SkillForm
+
+
 
 def home(request):
     about = About.objects.first()
@@ -54,4 +57,26 @@ def edit_about(request):
     else:
         form = AboutForm(instance=about)
     return render(request, 'aboutback.html', {'form': form, 'about': about})
+
+
+#* skills
+
+def skill_add(request):
+    if request.method == 'POST':
+        form = SkillForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('backoffice')
+    else:
+        form = SkillForm()
+    skills = Skill.objects.all()
+    return render(request, 'skillsback.html', {'form': form, 'skills':skills})
+
+
+
+def delete_skill(request, id):
+    skill = Skill.objects.get(id=id)
+    skill.delete()
+    return redirect('backoffice')
+
 
