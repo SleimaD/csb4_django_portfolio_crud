@@ -12,7 +12,7 @@
             <div class="container d-flex flex-column justify-content-center align-items-center ">
                 <form method="post" enctype="multipart/form-data" class="d-flex justify-content-center align-items-center flex-wrap w-100 gap-2 formcontact">
                     {% csrf_token %}
-                    <!-- Title -->
+                    <!-- Title -->   
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
                         <input type="text" class="form-control-a" id="title" name="title" value="{{ about.title }}">

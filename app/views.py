@@ -5,6 +5,7 @@ from portfolio.models import Project
 from services.models import Service
 from testimonials.models import Testimonial
 from contact.models import ContactInfo
+from contact.models import ContactMessage
 
 from about.forms import AboutForm
 from skills.forms import SkillForm
@@ -12,6 +13,8 @@ from portfolio.forms import ProjectForm
 from services.forms import ServiceForm
 from testimonials.forms import TestimonialForm
 from contact.forms import ContactInfoForm
+from contact.forms import ContactForm
+
 
 
 def home(request):
@@ -165,3 +168,28 @@ def edit_contact(request):
     else:
         form = ContactInfoForm(instance=contact_info)
     return render(request, 'contactback.html', {'form': form})
+
+
+#* Mailbox
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('contact')  
+    else:
+        form = ContactForm()
+    return render(request, 'index.html', {'form': form}) 
+
+
+def mailbox(request):
+    messages = ContactMessage.objects.all()
+    return render(request, 'mailbox.html', {'messages': messages})
+
+
+def delete_mailbox(request, id):
+    mailbox = ContactMessage.objects.get(id=id)
+    mailbox.delete()
+    return redirect('mailbox')
+

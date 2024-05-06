@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+
+{% block content %}
+<main id="main" class="mailbox  ">
+    <div class="container mailcontainer ">
+        <h1 class="text-center text-white ">Mailbox</h1>
+        <div class="container mails">
+            {% for message in messages %}
+            <div class="email-message">
+                <div class="w-100 d-flex justify-content-between ">
+                    <div>
+                        <strong>From:</strong> {{ message.name }} ({{ message.email }})<br>
+                        <strong>Subject:</strong> {{ message.subject }}<br>        
+                    </div>
+                    <div>
+                        <a href={% url "delete_mailbox" message.id %}><i class="bx bx-trash text-danger  "></i></a>
+                    </div>
+                </div>
+                <div class="divmessage ">
+                    <p>{{ message.message }}</p>
+                </div>
+                <hr>
+            </div>
+            {% empty %}
+            <p>No messages yet.</p>
+            {% endfor %}    
+        </div>
+    </div>
+
+    <div class="p-5 d-flex w-100  justify-content-center  align-items-center ">
+        <a class="btn bg-secondary text-white  " href={% url "home" %}>Go Back</a>
+    </div>
+
+</main>
+{% endblock %}

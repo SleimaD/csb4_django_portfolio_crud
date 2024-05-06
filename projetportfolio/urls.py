@@ -21,6 +21,9 @@ urlpatterns = [
     path("backoffice/addtestimonial/", views.add_testimonial, name="add_testimonial"),
     path("testimonial/<int:id>/destroy", views.delete_testimonial, name="delete_testimonial"),
     path('backoffice/edit-contact/', views.edit_contact, name='edit_contact'),
+    path("mailbox/", views.mailbox, name="mailbox"),
+    path("contact/", views.contact, name="contact"),
+    path("mailbox/<int:id>/destroy/", views.delete_mailbox, name="delete_mailbox")
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

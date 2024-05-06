@@ -1,5 +1,6 @@
 from django import forms
 from .models import ContactInfo
+from .models import ContactMessage
 
 class ContactInfoForm(forms.ModelForm):
     class Meta:
@@ -26,3 +27,11 @@ class ContactInfoForm(forms.ModelForm):
         if not phone:
             raise forms.ValidationError("This field is required.")
         return phone
+    
+
+
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = ContactMessage
+        fields = ['name', 'email', 'subject', 'message']
