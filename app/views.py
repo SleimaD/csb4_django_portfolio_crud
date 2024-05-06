@@ -67,7 +67,7 @@ def services(request):
 
 
 
-#* edit about
+# edit about
 def edit_about(request): 
     about = get_object_or_404(About, id=1)
     if request.method == 'POST':
