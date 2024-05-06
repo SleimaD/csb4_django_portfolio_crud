@@ -17,6 +17,9 @@ from contact.forms import ContactForm
 
 
 
+
+# Renders the home page with fetched data from various models.
+# Creates a unique category filter list for projects.
 def home(request):
     about = About.objects.first()
     skills = Skill.objects.all()
@@ -34,6 +37,8 @@ def home(request):
     return render(request, "index.html",context)
 
 
+
+# Renders the backoffice page with fetched data from various models.
 def backoffice(request):
     about = About.objects.first()
     skills = Skill.objects.all()
@@ -52,14 +57,18 @@ def backoffice(request):
 
 
 
+
+# Renders the services page with fetched data from the Service model.
 def services(request):
     services = Service.objects.all()
     context = locals()
     return render(request, "les-services.html",context)
 
-#*
+
+
+
+#* edit about
 def edit_about(request): 
-    # about = About.objects.first()
     about = get_object_or_404(About, id=1)
     if request.method == 'POST':
         form = AboutForm(request.POST or None, request.FILES, instance=about)
@@ -71,7 +80,7 @@ def edit_about(request):
     return render(request, 'aboutback.html', {'form': form, 'about': about})
 
 
-#* skills
+#* edit skills
 
 def skill_add(request):
     if request.method == 'POST':
@@ -85,7 +94,7 @@ def skill_add(request):
     return render(request, 'skillsback.html', {'form': form, 'skills':skills})
 
 
-
+# * delete skills
 def delete_skill(request, id):
     skill = Skill.objects.get(id=id)
     skill.delete()
@@ -93,12 +102,12 @@ def delete_skill(request, id):
 
 
 
-#* portfolio
-
+#* portfolio details
 def portfolio_details(request):
     return render(request, "portfolio-details.html")
 
 
+#* add a project to portfolio 
 def add_project(request):
     if request.method == 'POST':
         form = ProjectForm(request.POST, request.FILES)
@@ -109,7 +118,7 @@ def add_project(request):
         form = ProjectForm()
     return render(request, 'portfolioback.html', {'form': form})
 
-
+#* delete a projet from portfolio 
 def delete_project(request, id):
     project = Project.objects.get(id=id)
     project.delete()
@@ -117,8 +126,7 @@ def delete_project(request, id):
 
 
 
-#* services
-
+#* add services
 def add_service(request):
     if request.method == 'POST':
         form = ServiceForm(request.POST)
@@ -130,14 +138,17 @@ def add_service(request):
     return render(request, 'serviceback.html', {'form': form})
 
 
-
+#* delete a service
 def delete_service(request, id):
     service = Service.objects.get(id=id)
     service.delete()
     return redirect('backoffice')
 
-#* testimonials
 
+
+
+
+#* add testimonials
 def add_testimonial(request):
     if request.method == 'POST':
         form = TestimonialForm(request.POST, request.FILES)
@@ -149,6 +160,7 @@ def add_testimonial(request):
     return render(request, 'testimonialback.html', {'form': form})
 
 
+#* delete testimonial
 def delete_testimonial(request, id):
     testimonial = Testimonial.objects.get(id=id)
     testimonial.delete()
@@ -156,8 +168,7 @@ def delete_testimonial(request, id):
 
 
 
-#* contact
-
+#* edit contact
 def edit_contact(request):
     contact_info = get_object_or_404(ContactInfo, id=1)
     if request.method == 'POST':
@@ -170,8 +181,7 @@ def edit_contact(request):
     return render(request, 'contactback.html', {'form': form})
 
 
-#* Mailbox
-
+#* form to add to Mailbox
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -183,11 +193,13 @@ def contact(request):
     return render(request, 'index.html', {'form': form}) 
 
 
+#* render mailbox page and fetch all data
 def mailbox(request):
     messages = ContactMessage.objects.all()
     return render(request, 'mailbox.html', {'messages': messages})
 
 
+#* delete a mail
 def delete_mailbox(request, id):
     mailbox = ContactMessage.objects.get(id=id)
     mailbox.delete()
