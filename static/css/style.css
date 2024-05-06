@@ -313,11 +313,16 @@ section {
 }
 
 .section-bg {
-  background: #f5f8fd;
+  background: #090909;
+  color: white !important;
 }
 
 .section-title {
   padding-bottom: 30px;
+}
+
+.section-title h2 {
+  color: #a6e1fd !important;
 }
 
 .section-title h2 {
@@ -431,7 +436,7 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Akills
+# Skills
 --------------------------------------------------------------*/
 .skills .progress {
   height: 60px;
@@ -1145,5 +1150,60 @@ section {
 
 .form-control, .form-range {
   margin-bottom: 10px;
+}
+
+/* form contact */
+
+.form-controlc {
+  background: #ffffff;
+  width: 20rem;
+  border: #41424381 solid 2px;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+.formcontact {
+  background: #e7e7e7;
+  padding: 1rem;
+}
+
+.form-controldes {
+  width: 38rem;
+  background: #faf7f7;
+  border: #41424361 solid 2px;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+.form-control-a, .form-select {
+  background: #ffffff;
+  width: 30rem;
+  border: #41424381 solid 2px;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+.form-control-b {
+  background: #ffffff;
+  width: 30rem;
+  border: #41424381 solid 2px;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.form-control-c {
+  background: #ffffff;
+  width: 30rem;
+  border: #41424381 solid 2px;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.form-control-d {
+  background: #ffffff;
+  width: 30rem;
+  border: #41424381 solid 2px;
+  border-radius: 1rem;
+  padding: 1rem;
 }
 

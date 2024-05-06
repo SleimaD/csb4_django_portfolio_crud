@@ -4,10 +4,13 @@
 
 {% block content %}
 <main id="main" class="w-100 h-100 d-flex  align-items-center p-5  ">
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" class="d-flex justify-content-center align-items-center flex-wrap w-75 gap-2 formcontact">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Save Project</button>
+        <div>
+            <button type="submit" class="btn btn-primary">Save Project</button>
+            <a class="btn bg-primary-subtle " href={% url "backoffice" %}>Go Back</a>
+        </div>
     </form>
     
 </main>

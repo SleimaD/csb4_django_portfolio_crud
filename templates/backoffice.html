@@ -241,14 +241,14 @@
               {% for testimonial in testimonials %}
                   <div class="swiper-slide">
                       <div class="testimonial-item" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:100 }}">
-                          <p>
+                          <p class="text-black ">
                               <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                               {{ testimonial.text }}
                               <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                           </p>
                           <img src="{{ testimonial.image.url }}" class="testimonial-img" alt="{{ testimonial.first_name }} {{ testimonial.last_name }}">
-                          <h3>{{ testimonial.first_name }} {{ testimonial.last_name }}</h3>
-                          <h4>{{ testimonial.position }}</h4>
+                          <h3 class="text-white ">{{ testimonial.first_name }} {{ testimonial.last_name }}</h3>
+                          <h4 class="">{{ testimonial.position }}</h4>
                           <a href={% url "delete_testimonial" testimonial.id %} class="ledanger mt-2"><i class="bx bx-trash" ></i></a> 
                       </div>
                   </div><!-- End testimonial item -->

@@ -4,12 +4,15 @@
 {% block content %}
 
 <main id="main">
-    <div class="container mt-5">
+    <div class="container mt-5 w-100 h-100 d-flex flex-column justify-content-center gap-3 align-items-center p-5">
         <h2>Add Testimonial</h2>
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data" class="d-flex justify-content-center align-items-center flex-wrap w-75 gap-2 formcontact">
             {% csrf_token %}
             {{ form.as_p }}     
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a class="btn bg-primary-subtle " href={% url "backoffice" %}>Go Back</a>
+            </div>
         </form>
     </div>
     

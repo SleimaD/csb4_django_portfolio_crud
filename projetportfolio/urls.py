@@ -9,6 +9,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.home, name="home"),
     path("backoffice/", views.backoffice, name='backoffice' ),
+    path("services/", views.services, name="services"),
     path("backoffice/edit/", views.edit_about, name="edit_about"),
     path("backoffice/new/", views.skill_add, name="skill_add"),
     path("backoffice/<int:id>/destroy/", views.delete_skill, name="delete_skill"),

@@ -6,13 +6,13 @@ class ContactInfoForm(forms.ModelForm):
         model = ContactInfo
         fields = ['description', 'street', 'street_number', 'location', 'zipcode', 'email', 'phone']
         widgets = {
-            'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter a brief description...'}),
-            'street': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter street name'}),
-            'street_number': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter street number'}),
-            'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter location'}),
-            'zipcode': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter zipcode'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Enter email address'}),
-            'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter phone number'}),
+            'description': forms.Textarea(attrs={'class': 'form-controldes', 'placeholder': 'Enter a brief description...'}),
+            'street': forms.TextInput(attrs={'class': 'form-controlc', 'placeholder': 'Enter street name'}),
+            'street_number': forms.TextInput(attrs={'class': 'form-controlc', 'placeholder': 'Enter street number'}),
+            'location': forms.TextInput(attrs={'class': 'form-controlc', 'placeholder': 'Enter location'}),
+            'zipcode': forms.TextInput(attrs={'class': 'form-controlc', 'placeholder': 'Enter zipcode'}),
+            'email': forms.EmailInput(attrs={'class': 'form-controlc', 'placeholder': 'Enter email address'}),
+            'phone': forms.TextInput(attrs={'class': 'form-controlc', 'placeholder': 'Enter phone number'}),
         }
 
     def clean_email(self):

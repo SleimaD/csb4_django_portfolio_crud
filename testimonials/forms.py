@@ -8,10 +8,10 @@ class TestimonialForm(forms.ModelForm):
 
         
         widgets = {
-            'text': forms.Textarea(attrs={'cols': 40, 'rows': 3}),
-            'first_name': forms.TextInput(attrs={'placeholder': 'Enter first name'}),
-            'last_name': forms.TextInput(attrs={'placeholder': 'Enter last name'}),
-            'position': forms.TextInput(attrs={'placeholder': 'Enter position'}),
+            'text': forms.Textarea(attrs={'class': 'form-control-d','cols': 40, 'rows': 3}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control-d','placeholder': 'Enter first name'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control-d','placeholder': 'Enter last name'}),
+            'position': forms.TextInput(attrs={'class': 'form-control-d','placeholder': 'Enter position'}),
             
         }
 

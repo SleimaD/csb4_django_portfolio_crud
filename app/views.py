@@ -49,6 +49,12 @@ def backoffice(request):
 
 
 
+def services(request):
+    services = Service.objects.all()
+    context = locals()
+    return render(request, "les-services.html",context)
+
+#*
 def edit_about(request): 
     # about = About.objects.first()
     about = get_object_or_404(About, id=1)

@@ -6,3 +6,10 @@ class ProjectForm(forms.ModelForm):
         model = Project
         fields = ['title', 'category', 'image_description', 'image']
 
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control-b', 'placeholder': 'Enter a title'}),
+            'category': forms.TextInput(attrs={'class': 'form-control-b', 'placeholder': 'Enter a category'}),
+            'image_description': forms.Textarea(attrs={'class': 'form-control-b', 'placeholder': 'Enter a brief description'}),
+        }
+
+

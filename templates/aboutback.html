@@ -7,37 +7,27 @@
 
 
       <main id="main">
-        {% comment %} <section id="about" class="about">
-            <div class="container">
-                <form method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit" class="btn btn-success">Save Changes</button>
-                    <a href="{% url 'backoffice' %}" class="btn btn-secondary">Cancel</a>
-                </form>
-            </div>
-        </section> {% endcomment %}
 
         <section id="about" class="about">
-            <div class="container">
-                <form method="post" enctype="multipart/form-data">
+            <div class="container d-flex flex-column justify-content-center align-items-center ">
+                <form method="post" enctype="multipart/form-data" class="d-flex justify-content-center align-items-center flex-wrap w-100 gap-2 formcontact">
                     {% csrf_token %}
                     <!-- Title -->
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="title" name="title" value="{{ about.title }}">
+                        <input type="text" class="form-control-a" id="title" name="title" value="{{ about.title }}">
                     </div>
         
                     <!-- Subtitle -->
                     <div class="mb-3">
                         <label for="subtitle" class="form-label">Subtitle</label>
-                        <input type="text" class="form-control" id="subtitle" name="subtitle" value="{{ about.subtitle }}">
+                        <input type="text" class="form-control-a" id="subtitle" name="subtitle" value="{{ about.subtitle }}">
                     </div>
         
                     <!-- Profile Image -->
                     <div class="mb-3">
                         <label for="profile_image" class="form-label">Profile Image</label>
-                        <input type="file" class="form-control" id="profile_image" name="profile_image">
+                        <input type="file" class="form-control-img" id="profile_image" name="profile_image">
                         {% if about.profile_image %}
                         <img src="{{ about.profile_image.url }}" alt="Current Image" class="img-fluid mt-2" style="width: 150px;">
                         {% endif %}
@@ -46,49 +36,49 @@
                     <!-- General Description -->
                     <div class="mb-3">
                         <label for="general_description" class="form-label">General Description</label>
-                        <textarea class="form-control" id="general_description" name="general_description" rows="3">{{ about.general_description }}</textarea>
+                        <textarea class="form-control-a" id="general_description" name="general_description" rows="3">{{ about.general_description }}</textarea>
                     </div>
         
                     <!-- Birthday -->
                     <div class="mb-3">
                         <label for="birthday" class="form-label">Birthday</label>
-                        <input type="date" class="form-control" id="birthday" name="birthday" value="{{about.birthday|date:'Y-m-d' }}">
+                        <input type="date" class="form-control-a" id="birthday" name="birthday" value="{{about.birthday|date:'Y-m-d' }}">
                     </div>
         
                     <!-- Website -->
                     <div class="mb-3">
                         <label for="website" class="form-label">Website</label>
-                        <input type="url" class="form-control" id="website" name="website" value="{{ about.website }}">
+                        <input type="url" class="form-control-a" id="website" name="website" value="{{ about.website }}">
                     </div>
         
                     <!-- Phone -->
                     <div class="mb-3">
                         <label for="phone" class="form-label">Phone</label>
-                        <input type="text" class="form-control" id="phone" name="phone" value="{{ about.phone }}">
+                        <input type="text" class="form-control-a" id="phone" name="phone" value="{{ about.phone }}">
                     </div>
         
                     <!-- City -->
                     <div class="mb-3">
                         <label for="city" class="form-label">City</label>
-                        <input type="text" class="form-control" id="city" name="city" value="{{ about.city }}">
+                        <input type="text" class="form-control-a" id="city" name="city" value="{{ about.city }}">
                     </div>
         
                     <!-- Age -->
                     <div class="mb-3">
                         <label for="age" class="form-label">Age</label>
-                        <input type="number" class="form-control" id="age" name="age" value="{{ about.age }}">
+                        <input type="number" class="form-control-a" id="age" name="age" value="{{ about.age }}">
                     </div>
         
                     <!-- Degree -->
                     <div class="mb-3">
                         <label for="degree" class="form-label">Degree</label>
-                        <input type="text" class="form-control" id="degree" name="degree" value="{{ about.degree }}">
+                        <input type="text" class="form-control-a" id="degree" name="degree" value="{{ about.degree }}">
                     </div>
         
                     <!-- Email -->
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" value="{{ about.email }}">
+                        <input type="email" class="form-control-a" id="email" name="email" value="{{ about.email }}">
                     </div>
         
                     <!-- Freelance -->
@@ -103,7 +93,7 @@
                     <!-- Detailed Description -->
                     <div class="mb-3">
                         <label for="detailed_description" class="form-label">Detailed Description</label>
-                        <textarea class="form-control" id="detailed_description" name="detailed_description" rows="4">{{ about.detailed_description }}</textarea>
+                        <textarea class="form-control-a" id="detailed_description" name="detailed_description" rows="4">{{ about.detailed_description }}</textarea>
                     </div>
         
                     <button type="submit" class="btn btn-success">Save Changes</button>
